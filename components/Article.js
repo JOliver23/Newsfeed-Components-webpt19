@@ -137,6 +137,7 @@ const articleMaker = (obj) => {
   artBody1.textContent = obj.firstParagraph;
   artBody2.textContent = obj.secondParagraph;
   artBody3.textContent = obj.thirdParagraph;
+  expBtn.textContent = '+';
 
   expBtn.addEventListener('click', () => {
     artCard.classList.toggle('article-open')
@@ -144,3 +145,22 @@ const articleMaker = (obj) => {
 
   return artCard;
 }
+
+const artPlug = document.querySelector('.articles');
+console.log('artPlug grab: ', artPlug);
+data.forEach(article => {
+  artPlug.appendChild(articleMaker(article))
+});
+
+const myArt = {
+  title: 'My Lambda Journey In 2020',
+  date: 'July 14th, 2020',
+  firstParagraph: `Scouted labmda school in 2019, but thoughti coould never actually commit to be a software dev.`,
+
+  secondParagraph: `Left one of two jobs to try and find peace, and be happy with my direction. applied to lambda a week after quitiing,
+    started learning what i could given the precourse material and found a passioon for the puzzles coding presented.`,
+
+  thirdParagraph: `2020 hits and the world is upside down, but Lambda is still here and so am i!!!`
+};
+
+artPlug.appendChild(articleMaker(myArt));
