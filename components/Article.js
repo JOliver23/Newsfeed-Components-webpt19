@@ -111,3 +111,20 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+const articleMaker = () => {
+  const artCard = document.createElement('div');
+  const artTitle = document.createElement('h2');
+  const artDate = document.createElement('p');
+  const artBody1 = document.createElement('p');
+  const artBody2 = document.createElement('p');
+  const artBody3 = document.createElement('p');
+  const expBtn = document.createElement('span');
+
+  artCard.classList.add('article');
+  artDate.classList.add('date');
+  expBtn.classList.add('expandButton');
+
+  
+  return artCard;
+}
