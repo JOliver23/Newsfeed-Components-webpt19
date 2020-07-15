@@ -22,14 +22,17 @@ const menuMaker = (menuArray) => {
     menuList.appendChild(menuTab);
 
   })
+  const menuBtn = document.querySelector('.menu-button');
 
+  menuBtn.addEventListener('click', ()=> {
+    menuCard.classList.toggle('menu--open');
+  })
 
   return menuCard;
-
 }
 
-const menuBtn = document.querySelector('.menu-button');
-console.log('menu btn grabbed', menuBtn);
+const nfMenu = document.querySelector('.header');
+nfMenu.appendChild(menuMaker(menuItems));
 
 
 /* 
