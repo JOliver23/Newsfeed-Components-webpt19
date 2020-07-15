@@ -111,3 +111,56 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+const articleMaker = (obj) => {
+  const artCard = document.createElement('div');
+  const artTitle = document.createElement('h2');
+  const artDate = document.createElement('p');
+  const artBody1 = document.createElement('p');
+  const artBody2 = document.createElement('p');
+  const artBody3 = document.createElement('p');
+  const expBtn = document.createElement('span');
+
+  artCard.classList.add('article');
+  artDate.classList.add('date');
+  expBtn.classList.add('expandButton');
+
+  artCard.appendChild(artTitle);
+  artCard.appendChild(artDate);
+  artCard.appendChild(artBody1);
+  artCard.appendChild(artBody2);
+  artCard.appendChild(artBody3);
+  artCard.appendChild(expBtn);
+
+  artTitle.textContent = obj.title;
+  artDate.textContent = obj.date;
+  artBody1.textContent = obj.firstParagraph;
+  artBody2.textContent = obj.secondParagraph;
+  artBody3.textContent = obj.thirdParagraph;
+  expBtn.textContent = '+';
+
+  expBtn.addEventListener('click', () => {
+    artCard.classList.toggle('article-open')
+  })
+
+  return artCard;
+}
+
+const artPlug = document.querySelector('.articles');
+console.log('artPlug grab: ', artPlug);
+data.forEach(article => {
+  artPlug.appendChild(articleMaker(article))
+});
+
+const myArt = {
+  title: 'My Lambda Journey In 2020',
+  date: 'July 14th, 2020',
+  firstParagraph: `Scouted labmda school in 2019, but thoughti coould never actually commit to be a software dev.`,
+
+  secondParagraph: `Left one of two jobs to try and find peace, and be happy with my direction. applied to lambda a week after quitiing,
+    started learning what i could given the precourse material and found a passioon for the puzzles coding presented.`,
+
+  thirdParagraph: `2020 hits and the world is upside down, but Lambda is still here and so am i!!!`
+};
+
+artPlug.appendChild(articleMaker(myArt));
